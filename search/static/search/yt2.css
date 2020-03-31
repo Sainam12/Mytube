@@ -1,0 +1,62 @@
+.lform
+{
+	border: 1px solid lightgrey;
+	height: 300px;
+	border-radius: 5px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+.rform
+{
+	border: 1px solid lightgrey;
+	height: 490px;
+	border-radius: 5px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+.ltop
+{
+	height: 30px;
+}
+.rtop
+{
+	height: 0px;
+}
+.col-md-1
+{
+	margin:5px;
+}
+.form-control
+{
+	height: 40px;
+	width: 98%;
+}
+.login-btn
+{
+	margin-top:20px;
+	margin-left: 1%;
+}
+.login-text
+{
+	margin-left: 1%;
+	margin-top:15px;
+	margin-bottom: 10px;
+}
+.Reglink
+{
+	margin: 15px;
+	margin-left: 1%;
+}
+.error
+{
+	color: red;
+	padding: 0px;
+	padding-left: 3%;
+}
+.ierror
+{
+	font-size: 10px;
+	margin-left: 5%;
+	color: red;
+	height: 10px;
+}

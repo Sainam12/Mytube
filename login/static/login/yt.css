@@ -1,0 +1,37 @@
+﻿.col-md-6
+{
+	border: 1px solid lightgrey;
+	height: 340px;
+	border-radius: 5px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+.col-md-12
+{
+	height: 100px;
+}
+.col-md-1
+{
+	margin:15px;
+}
+.form-control
+{
+	height: 50px;
+	width: 98%;
+}
+.login-btn
+{
+	margin-top:20px;
+	margin-left: 1%;
+}
+.login-text
+{
+	margin-left: 1%;
+	margin-top:20px;
+	margin-bottom: 16px;
+}
+.Reglink
+{
+	margin: 15px;
+	margin-left: 1%;
+}

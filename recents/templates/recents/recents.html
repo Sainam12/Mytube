@@ -1,0 +1,110 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'search/yt.css'  %}">
+
+    <title>Hello, world!</title>
+
+
+
+
+
+  </head>
+  <body id="Body">
+  	<div class="jumbotron">
+  		<h1>Mini Project</h1>
+  		<p>Mini Project using Django, Html, Css, Javascript</p>
+  	</div>
+  	<nav class="navbar navbar-expand-sm navbar-dark bg-danger sticky-top">
+  		<button class="navbar-toggler" data-toggle="collapse" data-target="#Nav">
+  			<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<a href="/home/" class="logo col-sm-2 col">Youtube</a>&nbsp;&nbsp;&nbsp;
+
+
+      <div class="search">
+  		  <form class="navbar-form " method="POST">
+            {% csrf_token %}
+  		  		<input type="text" name="search" class="form-control" placeholder=" Search...">
+		      <button type="submit" class="btn btn-danger" >Search</button>
+        </form>
+      </div>
+
+
+  		<div id="Nav" class="collapse navbar-collapse" style="width: 450px">
+  		<ul class="navbar-nav">
+  			{% if user == None %}
+        <li class="nav-item">
+          <a href="/home/" class="nav-link"><font size="4">Home</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/favourites" class="nav-link"><font size="4">Favourite</font></a>
+        </li>
+        <li class="nav-item selected">
+          <a href="/recents/" class="nav-link"><font size="4">Recents</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/user/login/" class="nav-link"><font size="4">Login</font></a>
+        </li>/
+        {% else %}
+        <li class="nav-item">
+          <a href="/home/{{user.accesspin}}/" class="nav-link"><font size="4">Home</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/favourites/{{user.accesspin}}/" class="nav-link"><font size="4">Favourite</font></a>
+        </li>
+        <li class="nav-item selected">
+          <a href="/recents/{{user.accesspin}}/" class="nav-link"><font size="4">Recents</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/user/login/logout" class="nav-link"><font size="4">Logout</font></a>
+        </li>
+        {% endif %}
+  			<li class="skip">
+  				<a><font size="4"></font></a>
+  			</li>
+  		</ul>
+  		</div>
+  	</nav>
+    <br><br><br>
+    <div>
+      <center>
+        {% if user == None %}
+        <h1>Login to enjoy this feature</h1>>
+        {% else %}
+        <h1>Hello {{user.name}}</h1>
+        {% endif %}
+      </center>
+    </div>
+    <br>
+  	<br>
+
+
+
+    <div class="section" id="sec">
+      <div class="message" id="mess">
+        <div class="image">
+        </div>
+        <div class="details">
+        </div>
+        <div class="Buttons">
+        </div>
+        <span class="closeBtn">&times;</span>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'search/index.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

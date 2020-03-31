@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<br><br>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'search/yt2.css'  %}">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-12 ltop"></div>
+       </div>
+       <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-1"><h1>Login</h1></div>
+         <div class="col-md-3"></div>
+       </div>
+       <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-6 lform">
+           <form method="POST">
+            {% csrf_token %}
+            <div class="login-text">Username</div>
+            <center><input type="Username" name="name" class="form-control" placeholder=" Username"></center>
+            <div class="login-text">Password</div>
+            <center><input type="Password" name="password" class="form-control" placeholder=" Password"></center>
+            <div class="login-btn"><button type="submit" class="btn btn-danger" ><font style="font-size: 18px">Login</font></button></div>
+           </form>
+           <div class="Reglink">New User? <a href="/user/register/">Register here</a></div>
+           <div class="error"></div>
+         </div>
+         <div class="col-md-3"></div>
+       </div>
+       <div class="row">
+         <div class="col-md-3"></div>
+       </div>
+     </div> 
+</body>
+</html>

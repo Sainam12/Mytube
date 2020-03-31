@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body><br>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'search/yt2.css'  %}">
+     <div class="container">
+       <div class="row">
+         <div class="rtop"></div>
+       </div>
+       <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-1"><h1>Register</h1></div>
+         <div class="col-md-3"></div>
+       </div>
+       <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-6 rform">
+           <form method="POST">
+            {% csrf_token %}
+            <div class="login-text">Username <span style="color: red">*</span></div>
+            <center><input type="Username" name="name" class="form-control" placeholder=" Username"></center>
+            <div class="ierror">{{errs.0}}</div>
+            <div class="login-text">Email <span style="color: red">*</span></div>
+            <center><input type="email" name="email" class="form-control" placeholder=" Email"></center>
+            <div class="ierror">{{errs.1}}</div>
+            <div class="login-text">Password <span style="color: red">*</span></div>
+            <center><input type="Password" name="password1" class="form-control" placeholder=" Password"></center>
+            <div class="login-text">Confirm Password <span style="color: red">*</span></div>
+            <center><input type="Password" name="password2" class="form-control" placeholder=" Conf Password"></center>
+            <div class="ierror">{{errs.2}}</div>
+            <div class="login-btn"><button type="submit" class="btn btn-success" ><font style="font-size: 18px">Register</font></button></div>
+           </form>
+           <div class="col-md-12" style="padding: 9px"><center>Already have an account? <a href="/user/login">Login here</a></center></div>
+         </div>
+         <div class="col-md-3"></div>
+       </div>
+     </div> 
+</body>
+</html>
