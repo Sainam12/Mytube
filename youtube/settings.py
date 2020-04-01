@@ -122,6 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'search/static')
+]
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
 YOUTUBE_DATA_API_KEY='AIzaSyCk7Rk_afJRlvM6UGdyfrcZFsL3wzQso24'
 django_heroku.settings(locals())
