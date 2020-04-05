@@ -79,8 +79,11 @@ WSGI_APPLICATION = 'youtube.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Youtube',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost'
     }
 }
 
@@ -121,10 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'search/static')
-]
+STATIC_URL = '/static/' 
 STATIC_ROOT = os.path.join(BASE_DIR,"static")
 YOUTUBE_DATA_API_KEY='AIzaSyCk7Rk_afJRlvM6UGdyfrcZFsL3wzQso24'
 django_heroku.settings(locals())
