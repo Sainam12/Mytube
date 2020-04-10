@@ -28,47 +28,70 @@
   		</button>
   		<a href="#" class="logo col-sm-2 col">Youtube</a>&nbsp;&nbsp;&nbsp;
 
-
+      {% if user == None %}
       <div class="search">
-  		  <form class="navbar-form" action="/home/" method="POST">
+  		  <form class="navbar-form" action="/home/0/" method="POST">
             {% csrf_token %}
   		  		<input type="text" name="search" class="form-control" placeholder=" Search...">
 		      <button type="submit" class="btn btn-danger" >Search</button>
         </form>
       </div>
-
+      {% else %}
+      <div class="search">
+        <form class="navbar-form" action="/home/{{user.accesspin}}/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="search" class="form-control" placeholder=" Search...">
+          <button type="submit" class="btn btn-danger" >Search</button>
+        </form>
+      </div>
+      {% endif %}
 
   		<div id="Nav" class="collapse navbar-collapse" style="width: 450px">
   		<ul class="navbar-nav">
-  			<li class="nav-item selected">
-  				<a href="#" class="nav-link"><font size="4">Home</font></a>
-  			</li>
-  			<li class="nav-item">
-  				<a href="/favourites/" class="nav-link"><font size="4">Favourite</font></a>
-  			</li>
-  			<li class="nav-item">
-  				<a href="/recents/" class="nav-link"><font size="4">Recents</font></a>
-  			</li>
-  			<li class="nav-item">
-  				<a href="/user/login/" class="nav-link"><font size="4">Login</font></a>
-  			</li>
-  			<li class="skip">
-  				<a><font size="4"></font></a>
-  			</li>
-  		</ul>
+        {% if user == None %}
+        <li class="nav-item selected">
+          <a href="/home/0/" class="nav-link"><font size="4">Home</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="favourite.html" class="nav-link"><font size="4">Favourite</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/recents/" class="nav-link"><font size="4">Recents</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/user/login/" class="nav-link"><font size="4">Login</font></a>
+        </li>/
+        {% else %}
+        <li class="nav-item selected">
+          <a href="/home/{{user.accesspin}}/" class="nav-link"><font size="4">Home</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/favourites/{{user.accesspin}}/" class="nav-link"><font size="4">Favourite</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/recents/{{user.accesspin}}/" class="nav-link"><font size="4">Recents</font></a>
+        </li>
+        <li class="nav-item">
+          <a href="/user/login/{{user.accesspin}}/logout" class="nav-link"><font size="4">Logout</font></a>
+        </li>
+        {% endif %}
+        <li class="skip">
+          <a><font size="4"></font></a>
+        </li>
+      </ul>
   		</div>
   	</nav>
   	<br>
     {% if user == None %}
-    <center>You may login to enjoy more features</center>
+    <center>Login to enjoy more features</center>
     {% else %}
-    <center><h1>Hello {{user.name}}</h1></center>
+    <center>Hello {{user.name}}</center>
     {% endif %}
     <br>
   	<div class="container">
      <div class="row">
        {% for video in videos %}
-       <div class="col-md-4" onclick="popup()">
+       <div class="col-md-4">
          <div class="card" style="height: 480px">
            <div class="thumbnail">
               <img src="{{video.thumbnail}}" width="100%"
@@ -107,7 +130,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-4 hey">
           <form method="POST" id="form-2">
             Enter text here<input type="Username" name="name2" class="form-control">
             <br>

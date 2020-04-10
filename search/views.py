@@ -8,12 +8,11 @@ from login.models import User
 
 # Create your views here.
 def index(request,accesspin):
-	user=[]
-	if accesspin == 0:
+	videos=[]
+	if accesspin=='0':
 		user=None
 	else:
 		user = get_object_or_404(User,accesspin=int(accesspin))
-	videos=[]
 	if request.method == 'POST':
 		search_url='https://www.googleapis.com/youtube/v3/search'
 		video_url='https://www.googleapis.com/youtube/v3/videos'
