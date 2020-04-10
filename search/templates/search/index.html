@@ -59,6 +59,12 @@
   		</div>
   	</nav>
   	<br>
+    {% if user == None %}
+    <center>You may login to enjoy more features</center>
+    {% else %}
+    <center><h1>Hello {{user.name}}</h1></center>
+    {% endif %}
+    <br>
   	<div class="container">
      <div class="row">
        {% for video in videos %}
@@ -70,19 +76,20 @@
            </div>
            <div align="right" style="margin-right: 8px;">{{video.duration}}
            </div>
+           <form>
            <div style="margin: 9px;font-size: 19px;height: 60px;color: "><b>{{video.title}}</b>
            </div>
            <div style="margin-left: 9px; font-size: 19px">by <b>{{video.channel_name}}</b></div>
            <div style="margin-left: 9px; font-size: 19px">{{video.views}} views</div>
            <div style="margin-left: 9px; font-size: 19px">{{video.pub_date}}</div>
            <div style="margin: 15px">
-           <center><button class="btn btn-success">Watch on Youtube</button>&nbsp;&nbsp;&nbsp;&nbsp;<font>&hearts;</font></center></div>
+           <center><input type="submit" value="Favourite"></center></div>
+</form>
          </div>
        </div>
        {% endfor %}
      </div>   
     </div>
-
 
 
     <div class="section" id="sec">
@@ -96,6 +103,18 @@
         <span class="closeBtn">&times;</span>
       </div>
     </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <form method="POST" id="form-2">
+            Enter text here<input type="Username" name="name2" class="form-control">
+            <br>
+            <input type="submit" name="Continue">
+          </form>
+        </div>
+        <div class="col-md-4"></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

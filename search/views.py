@@ -2,10 +2,17 @@ from django.shortcuts import render,redirect
 import requests
 from isodate import parse_duration
 from django.conf import settings
+from django.shortcuts import render,get_object_or_404
 from datetime import datetime,date
+from login.models import User
 
 # Create your views here.
-def index(request):
+def index(request,accesspin):
+	user=[]
+	if accesspin == 0:
+		user=None
+	else:
+		user = get_object_or_404(User,accesspin=int(accesspin))
 	videos=[]
 	if request.method == 'POST':
 		search_url='https://www.googleapis.com/youtube/v3/search'
@@ -45,10 +52,11 @@ def index(request):
 			videos.append(video_data)
 			print(video_data['thumbnail'])
 	context={
-	'videos':videos
+	'videos':videos,'user':user
 	}
 	return render(request,'search/index.html',context)
 
+def favourite(request):
 
 
 	'''videos=[]
