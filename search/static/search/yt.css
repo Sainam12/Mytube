@@ -17,6 +17,10 @@
 	width: 335px;
 	height: 35px;
 }
+.btn-danger
+{
+	margin: 2px;
+}
 .search
 {
 	position: relative;
