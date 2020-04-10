@@ -2,5 +2,6 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-	path('<accesspin>/',views.index,name='index'),
+	path('',views.index,name='index'),
+	path('<accesspin>/',views.lindex,name='lindex'),
 ]

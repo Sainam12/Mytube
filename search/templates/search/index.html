@@ -30,7 +30,7 @@
 
       {% if user == None %}
       <div class="search">
-  		  <form class="navbar-form" action="/home/0/" method="POST">
+  		  <form class="navbar-form" action="/home/" method="POST">
             {% csrf_token %}
   		  		<input type="text" name="search" class="form-control" placeholder=" Search...">
 		      <button type="submit" class="btn btn-danger" >Search</button>
@@ -50,10 +50,10 @@
   		<ul class="navbar-nav">
         {% if user == None %}
         <li class="nav-item selected">
-          <a href="/home/0/" class="nav-link"><font size="4">Home</font></a>
+          <a href="/home/" class="nav-link"><font size="4">Home</font></a>
         </li>
         <li class="nav-item">
-          <a href="favourite.html" class="nav-link"><font size="4">Favourite</font></a>
+          <a href="/favourites/" class="nav-link"><font size="4">Favourite</font></a>
         </li>
         <li class="nav-item">
           <a href="/recents/" class="nav-link"><font size="4">Recents</font></a>
