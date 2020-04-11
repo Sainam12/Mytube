@@ -86,6 +86,7 @@ def lindex(request,accesspin):
 				'id':result['id'],
 				'duration':duration(int(parse_duration(result['contentDetails']['duration']).total_seconds())),
 				'thumbnail':result['snippet']['thumbnails']['high']['url'],
+				'url':f'https://www.youtube.com/watch?v={result["id"]}',
 				'views':view(int(result['statistics']['viewCount'])),
 				'channel_name':result['snippet']['channelTitle'],
 				'pub_date':pub_at(result['snippet']['publishedAt']),
