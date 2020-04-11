@@ -27,13 +27,23 @@
   			<span class="navbar-toggler-icon"></span>
   		</button>
   		<a href="/home/" class="logo col-sm-2 col">Youtube</a>&nbsp;&nbsp;&nbsp;
+      {% if user == None %}
       <div class="search">
-  		  <form class="navbar-form " method="POST">
+        <form class="navbar-form" action="/home/" method="POST">
             {% csrf_token %}
-  		  		<input type="text" name="search" class="form-control" placeholder=" Search...">
-		      <button type="submit" class="btn btn-danger" >Search</button>
+            <input type="text" name="search" class="form-control" placeholder=" Search...">
+          <center><button type="submit" class="btn btn-danger" >Search</button></center>
         </form>
       </div>
+      {% else %}
+      <div class="search">
+        <form class="navbar-form" action="/home/{{user.accesspin}}/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="search" class="form-control" placeholder=" Search...">
+          <button type="submit" class="btn btn-danger" >Search</button>
+        </form>
+      </div>
+      {% endif %}
 
 
   		<div id="Nav" class="collapse navbar-collapse" style="width: 450px">
